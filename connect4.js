@@ -29,7 +29,7 @@ function makeHtmlBoard() {
   const board = document.getElementById('board');
 
 
-  // Create columns tops with a clickable area for pieces added to that column
+  // create column tops with a clickable area to add pieces
   const top = document.createElement('tr');
   top.setAttribute('id', 'column-top');
   top.addEventListener('click', handleClick);
@@ -42,7 +42,7 @@ function makeHtmlBoard() {
   
   board.append(top);
 
-  // Create a table for the board
+  // create board
   for (let y = 0; y < HEIGHT; y++) {
     const row = document.createElement('tr');
     
@@ -142,6 +142,7 @@ function checkForWin() {
 
   for (let y = 0; y < HEIGHT; y++) {
     for (let x = 0; x < WIDTH; x++) {
+      // get a "check list" of 4 cells (starting here) for each of the different ways to win
       const horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
       const vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
       const diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
